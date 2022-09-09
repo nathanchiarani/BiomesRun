@@ -1,0 +1,38 @@
+Simone
+	1 QdC
+	(Tutto il progetto) Documentazione
+	1 Gantt
+	1 Template labirinti
+	2 Schermate di benvenuto al livello
+	2 Design schermata impostazioni
+	2 Funzionamento schermata impostazioni
+	2 Schermata iniziale
+	2 Schermata di vincita
+	2 Prima persona
+	3 Programmazione gioco completo
+		2 Vite personaggio
+	2 DB classifica
+	
+
+Nathan
+	1 QdC
+	(TUtto il progetto) Documentazione
+	1 Gantt
+	1 Template labirinti
+	1 Raccolta template 3d
+	2 Funzionamento schermata impostazioni
+	2 Luci clima audio
+	2 Chiavi, porte, bonus, stelline e immortalità, mostri (Programmazione)
+	3 Programmazione gioco completo
+		2 Vite personaggio
+	2 DB classifica
+	
+
+
+Requisiti funzionali e non
+	Non funzionali
+		Sicurezza dati (classifica)
+		Velocità gioco (no lag)
+		No bug
+	Funzionali
+		QdC
