@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FirstPerson : MonoBehaviour
 {
-
+	
 	public float Sensitivity
 	{
 		get { return sensitivity; }
@@ -20,6 +20,8 @@ public class FirstPerson : MonoBehaviour
 
 	void Update()
 	{
+		
+
 		rotation.x += Input.GetAxis(xAxis) * sensitivity;
 		rotation.y += Input.GetAxis(yAxis) * sensitivity;
 		rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
