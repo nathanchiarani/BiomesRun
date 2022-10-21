@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +10,42 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10.0f;
     private float translation;
     private float straffe;
+    public Image imgLives;
 
+    private int lives = 3;
+
+    [SerializeField]
+    private Sprite[] _liveSprites;
+
+    public IEnumerator WaitSec()
+    {
+        yield return new WaitForSeconds(1000);
+    }
+    
+    public int updateLives(int currentLives)
+    {
+        imgLives.sprite = _liveSprites[currentLives];
+        Debug.Log(currentLives);
+        return currentLives;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.tag == "mostro")
+        {
+            lives--;
+            print(lives);
+            StartCoroutine(WaitSec());
+            imgLives.sprite = _liveSprites[updateLives(lives)];
+        }
+        if (lives == 0)
+        {
+            StartCoroutine(WaitSec());
+            Destroy(this.gameObject);
+            //SceneManager.LoadScene(<perdita>);
+        }
+    }
     // Use this for initialization
     void Start()
     {
