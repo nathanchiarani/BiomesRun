@@ -45,54 +45,15 @@ public class PlayerMovement : MonoBehaviour
         return currentLives;
     }
 
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "mostro")
-    //    {
-    //        print("lost");
-    //        lives--;
-    //        imgLives.sprite = _liveSprites[updateLives(lives)];
-    //    }
-    //    if (lives == 0)
-    //    {
-    //        Destroy(this.gameObject);
-    //        //SceneManager.LoadScene(<perdita>);
-    //    }
-
-    //    //if (collision.gameObject.tag == "gemma")
-    //    //{
-    //    //    StartCoroutine(DestroyBonus(collision.gameObject));
-    //    //}
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-
-    //    if (collision.gameObject.CompareTag("mostro"))
-    //    {
-    //        _time += Time.deltaTime;
-    //        if (_time >= 0.3f)
-    //        {
-    //            print("lost");
-    //            lives--;
-    //            imgLives.sprite = _liveSprites[updateLives(lives)];
-    //            _time = 0;
-    //        }
-    //        if (lives == 0)
-    //        {
-    //            Destroy(this.gameObject);
-    //            //SceneManager.LoadScene(<perdita>);
-    //        }
-    //    }
-    //}
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "mostro")
         {
             //collision.transform.position = new Vector3(, 0, 0);
             print("lost");
-            
+            lives--;
+            imgLives.sprite = _liveSprites[updateLives(lives)];
+
         }
         if (lives == 0)
         {
@@ -100,13 +61,6 @@ public class PlayerMovement : MonoBehaviour
             //SceneManager.LoadScene(<perdita>);
         }
     }
-
-    IEnumerator DecrementLives(GameObject obj)
-    {
-        lives--;
-        imgLives.sprite = _liveSprites[updateLives(lives)];
-    } //Coroutine
-
 
 
     //IEnumerator DestroyBonus(GameObject obj) //Coroutine
