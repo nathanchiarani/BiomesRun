@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     bool grounded;
 
+    [Header("Player damage manager")]
+    public float damageTime;
+
     public Transform orientation;
 
     float horizontalInput;
@@ -35,78 +38,37 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private Sprite[] _liveSprites;
-    private float _time;
+
+    bool canTakeDamage;
 
 
     public int updateLives(int currentLives)
     {
         imgLives.sprite = _liveSprites[currentLives];
-        Debug.Log(currentLives);
         return currentLives;
     }
 
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "mostro")
-    //    {
-    //        print("lost");
-    //        lives--;
-    //        imgLives.sprite = _liveSprites[updateLives(lives)];
-    //    }
-    //    if (lives == 0)
-    //    {
-    //        Destroy(this.gameObject);
-    //        //SceneManager.LoadScene(<perdita>);
-    //    }
-
-    //    //if (collision.gameObject.tag == "gemma")
-    //    //{
-    //    //    StartCoroutine(DestroyBonus(collision.gameObject));
-    //    //}
-    //}
-
-    //private void OnCollisionStay(Collision collision)
-    //{
-
-    //    if (collision.gameObject.CompareTag("mostro"))
-    //    {
-    //        _time += Time.deltaTime;
-    //        if (_time >= 0.3f)
-    //        {
-    //            print("lost");
-    //            lives--;
-    //            imgLives.sprite = _liveSprites[updateLives(lives)];
-    //            _time = 0;
-    //        }
-    //        if (lives == 0)
-    //        {
-    //            Destroy(this.gameObject);
-    //            //SceneManager.LoadScene(<perdita>);
-    //        }
-    //    }
-    //}
-
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "mostro")
         {
-            //collision.transform.position = new Vector3(, 0, 0);
-            print("lost");
-            
+            if (canTakeDamage)
+            {
+                canTakeDamage = false;
+                StartCoroutine(CollisionWithMonster());
+            }
         }
         if (lives == 0)
         {
             Destroy(this.gameObject);
             //SceneManager.LoadScene(<perdita>);
         }
+
+        //if (collision.gameObject.tag == "gemma")
+        //{
+        //    StartCoroutine(DestroyBonus(collision.gameObject));
+        //}
     }
-
-    IEnumerator DecrementLives(GameObject obj)
-    {
-        lives--;
-        imgLives.sprite = _liveSprites[updateLives(lives)];
-    } //Coroutine
-
 
 
     //IEnumerator DestroyBonus(GameObject obj) //Coroutine
@@ -114,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
     //    if (obj.gameObject.tag == "gemma")
     //    {
     //        obj.gameObject.GetComponent<BoxCollider>().enabled = false;
-    //        yield return new WaitForSeconds(0.25f);
+    //        yield return new CollisionWithMonster(0.25f);
     //        punteggio++;
     //        GameObject.FindGameObjectWithTag("ValorePunteggio").GetComponent<Text>().text = punteggio.ToString();
     //        Destroy(obj.gameObject);
@@ -125,9 +87,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canTakeDamage = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        _time = 0;
     }
 
     // Update is called once per frame
@@ -179,5 +141,17 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
+    }
+
+    IEnumerator CollisionWithMonster()
+    {
+        if(damageTime == 0)
+        {
+            damageTime = 1f;
+        }
+        lives--;
+        imgLives.sprite = _liveSprites[updateLives(lives)];
+        yield return new WaitForSeconds(damageTime);
+        canTakeDamage = true;
     }
 }
