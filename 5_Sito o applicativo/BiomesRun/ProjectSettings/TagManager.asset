@@ -7,6 +7,8 @@ TagManager:
   - mostro
   - gemma
   - ValorePunteggio
+  - keyCaveau
+  - finalKey
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     float verticalInput;
 
     Vector3 moveDirection;
-    int punteggio;
 
     Rigidbody rb;
 
@@ -41,53 +41,10 @@ public class PlayerMovement : MonoBehaviour
 
     bool canTakeDamage;
 
-
-    public int updateLives(int currentLives)
-    {
-        imgLives.sprite = _liveSprites[currentLives];
-        return currentLives;
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "mostro")
-        {
-            if (canTakeDamage)
-            {
-                canTakeDamage = false;
-                StartCoroutine(CollisionWithMonster());
-            }
-        }
-        if (lives == 0)
-        {
-            Destroy(this.gameObject);
-            //SceneManager.LoadScene(<perdita>);
-        }
-
-        //if (collision.gameObject.tag == "gemma")
-        //{
-        //    StartCoroutine(DestroyBonus(collision.gameObject));
-        //}
-    }
-
-
-    //IEnumerator DestroyBonus(GameObject obj) //Coroutine
-    //{
-    //    if (obj.gameObject.tag == "gemma")
-    //    {
-    //        obj.gameObject.GetComponent<BoxCollider>().enabled = false;
-    //        yield return new CollisionWithMonster(0.25f);
-    //        punteggio++;
-    //        GameObject.FindGameObjectWithTag("ValorePunteggio").GetComponent<Text>().text = punteggio.ToString();
-    //        Destroy(obj.gameObject);
-    //    }
-    //}
-
-
-    // Start is called before the first frame update
     void Start()
     {
         canTakeDamage = true;
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
@@ -115,6 +72,31 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+    }
+
+    public int updateLives(int currentLives)
+    {
+        imgLives.sprite = _liveSprites[currentLives];
+        return currentLives;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "mostro")
+        {
+            if (canTakeDamage)
+            {
+                canTakeDamage = false;
+                StartCoroutine(CollisionWithMonster());
+            }
+        }
+        if (lives == 0)
+        {
+            Destroy(this.gameObject);
+            //SceneManager.LoadScene(<perdita>);
+        }
+
+        
     }
 
     private void MyInput()
