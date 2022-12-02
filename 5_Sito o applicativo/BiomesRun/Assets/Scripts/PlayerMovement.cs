@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool canTakeDamage;
 
+
     void Start()
     {
         canTakeDamage = true;
@@ -96,7 +97,12 @@ public class PlayerMovement : MonoBehaviour
             //SceneManager.LoadScene(<perdita>);
         }
 
-        
+        if (collision.gameObject.tag == "stella")
+        {
+            Destroy(collision.gameObject);
+            StartCoroutine(CollisionWithStar());
+        }
+
     }
 
     private void MyInput()
@@ -135,5 +141,12 @@ public class PlayerMovement : MonoBehaviour
         imgLives.sprite = _liveSprites[updateLives(lives)];
         yield return new WaitForSeconds(damageTime);
         canTakeDamage = true;
+    }
+
+    IEnumerator CollisionWithStar()
+    {
+        moveSpeed += 5;
+        yield return new WaitForSeconds(3f);
+        moveSpeed -= 5;
     }
 }
