@@ -6,6 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Benvenuto.unity
+    guid: 021a33c669c68e04b8337cf74b6283bb
+  - enabled: 1
+    path: Assets/Scenes/Biome1.unity
+    guid: 42a86c9a1dc3a0246b224a55f588099b
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Bioma2.unity
+    guid: a376ff8788dbc4a4e8789bb37379ff0c
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 14103c2caf206a94b899343d4110e47c
+  - enabled: 1
+    path: Assets/Scenes/Bioma3.unity
+    guid: 72587a8bddb44554d84f64ce68459234
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 8f1003ebe13afce46b5b7f8f568bb0b5
+  - enabled: 1
+    path: Assets/Scenes/Vittoria.unity
+    guid: d4663d384a8dad041ac10796c5fb626a
+  - enabled: 1
+    path: Assets/Scenes/Perdita_Chiave.unity
+    guid: ebe151ef24a2a50478ffcb283486476e
+  - enabled: 1
+    path: Assets/Scenes/Perdita_Vite.unity
+    guid: 552e9f777606b574eb9f4f0bbdd3bd74
+  - enabled: 1
+    path: Assets/Scenes/Pausa.unity
+    guid: 442a0d2a2371f8145b77e6c79c75088a
   m_configObjects: {}

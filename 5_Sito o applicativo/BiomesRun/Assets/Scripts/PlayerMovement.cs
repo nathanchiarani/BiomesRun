@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
@@ -40,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     private Sprite[] _liveSprites;
 
     bool canTakeDamage;
-
 
     void Start()
     {
@@ -93,14 +93,33 @@ public class PlayerMovement : MonoBehaviour
         }
         if (lives == 0)
         {
-            Destroy(this.gameObject);
-            //SceneManager.LoadScene(<perdita>);
+            GetComponent<MenuManager>().LoseLives();
         }
 
         if (collision.gameObject.tag == "stella")
         {
             Destroy(collision.gameObject);
             StartCoroutine(CollisionWithStar());
+        }
+
+        if (collision.gameObject.tag == "Portal1")
+        {
+            GetComponent<MenuManager>().LoadBiome2();
+        }
+
+        if (collision.gameObject.tag == "Portal2")
+        {
+            GetComponent<MenuManager>().LoadBiome3();
+        }
+
+        if (collision.gameObject.tag == "Portal3")
+        {
+            GetComponent<MenuManager>().Victory();
+        }
+
+        if(collision.gameObject.tag == "WrongKey")
+        {
+            GetComponent<MenuManager>().LoseKey();
         }
 
     }
