@@ -44,10 +44,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         canTakeDamage = true;
 
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
+        rb.freezeRotation = true; 
     }
 
     // Update is called once per frame
