@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 1, y: 94}
+  m_AnchoredPosition: {x: 1, y: 53}
   m_SizeDelta: {x: 200, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &426476549
@@ -637,7 +637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0001, y: 24}
+  m_AnchoredPosition: {x: 1.0001, y: -7}
   m_SizeDelta: {x: 785.1313, y: 301.0401}
   m_Pivot: {x: 0.5000001, y: 0.50000006}
 --- !u!114 &1315399380
@@ -662,11 +662,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "La savana \xE8 un bioma terrestre soprattutto subtropicale e tropicale
     localizzato tra 10 e 20\xB0 di latitudine (N e S) e caratterizzato da una stagione
-    secca e da una stagione umida.\r\n\r\nIn questo livello dovrai prendere 11 bonus
-    di cui 4 nascosti in stanze chiuse a chiave. Fai attenzione per\xF2, una chiave
-    \xC8 falsa, infatti ti riporter\xE0 all\u2019inizio del gioco hahahah. Prendendo
-    tutti i bonus e le chiavi potrai scappare e terminare il gioco.\r\nStai attento
-    per\xF2, qualcuno cercher\xE0 di impedirtelo..."
+    secca e da una stagione umida.\r\n\r\nIn questo livello dovrai prendere 11 gemme
+    di cui 4 nascoste in stanze chiuse a chiave.\nFai attenzione per\xF2, una CHIAVE
+    \xE8 FALSA, infatti ti riporter\xE0 all\u2019INIZIO del GIOCO hahahah. \nPrendendo
+    tutti i bonus e le chiavi potrai scappare e terminare il gioco.\r\nInoltre ci
+    saranno due stelle nascoste che ti permetteranno di andare pi\xF9 veloce per
+    sfuggire alle grinfie dei mostri\n\nStai attento per\xF2, qualcuno cercher\xE0
+    di impedirtelo..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -693,8 +695,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

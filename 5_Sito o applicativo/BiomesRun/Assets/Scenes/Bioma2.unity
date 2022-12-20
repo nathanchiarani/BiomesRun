@@ -435,9 +435,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Il bioma polare terrestre \xE8 costituito da terreni completamente ricoperti
     da ghiacciai, ed \xE8 caratterizzato da precipitazioni scarse e nevose.\r\n\r\nIn
-    questo livello dovrai prendere 7 bonus di cui 2 nascosti in una stanza chiusa
-    a chiave, trovandola si potr\xE0 accedere al livello successivo.\r\n\r\nStai
-    attento per\xF2, qualcuno cercher\xE0 di impedirtelo..."
+    questo livello dovrai prendere 7 gemme di cui 2 nascoste in una stanza chiusa
+    a chiave, trovandola si potr\xE0 accedere al livello successivo.\r\nInoltre ci
+    sar\xE0 una stella nascosta che ti permetter\xE0 di andare pi\xF9 veloce per
+    sfuggire alle grinfie dei mostri\n\r\nStai attento per\xF2, qualcuno cercher\xE0
+    di impedirtelo..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -464,8 +466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -625,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1, y: -37}
-  m_SizeDelta: {x: 596.5245, y: 50}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -54.052002}
+  m_SizeDelta: {x: 999, y: 84.1039}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507762641
 MonoBehaviour:
@@ -650,7 +652,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Ben fatto, hai passato il primo livello!
 
-    Benvenuto nel bioma polare'
+    Benvenuto nel secondo livello
+    di tre. Il bioma polare'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.0001, y: -40.269}
-  m_SizeDelta: {x: 571.2168, y: 80.5373}
+  m_AnchoredPosition: {x: 3.2007, y: -40.268997}
+  m_SizeDelta: {x: 889.4914, y: 80.5373}
   m_Pivot: {x: 0.5000001, y: 0.50000006}
 --- !u!114 &68312862
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Benvenuto nel bioma della giungla
+  m_text: Benvenuto nel primo livello di tre. Il bioma della giungla
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -938,7 +938,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "La giungla \xE8 una Vasta zona di terreno basso e umido, tipica dei paesi
     equatoriali e tropicali, interamente coperta da fitta e intricata vegetazione.\r\n\r\nIn
-    questo livello dovrai prendere 6 bonus nascosti in giro per poter accedere al
+    questo livello dovrai prendere 6 gemme nascoste in giro per poter accedere al
     livello successivo. \r\n\r\nStai attento per\xF2, qualcuno cercher\xE0 di impedirtelo..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

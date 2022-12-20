@@ -7,35 +7,35 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Benvenuto.unity
-    guid: 021a33c669c68e04b8337cf74b6283bb
+    guid: a7ac00577a6dc49499ca5a89d758bce6
   - enabled: 1
     path: Assets/Scenes/Biome1.unity
-    guid: 42a86c9a1dc3a0246b224a55f588099b
+    guid: 0e76e95442820494bbc34eff71f48927
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Bioma2.unity
-    guid: a376ff8788dbc4a4e8789bb37379ff0c
+    guid: eaa020c229f826a4683a7296e225e0f6
   - enabled: 1
     path: Assets/Scenes/Level2.unity
-    guid: 14103c2caf206a94b899343d4110e47c
+    guid: 3086cc59b6b0f5b4084c0577d1e978db
   - enabled: 1
     path: Assets/Scenes/Bioma3.unity
-    guid: 72587a8bddb44554d84f64ce68459234
+    guid: 026178ea328f14c40994f3996417bc24
   - enabled: 1
     path: Assets/Scenes/Level3.unity
-    guid: 8f1003ebe13afce46b5b7f8f568bb0b5
+    guid: 2af49798918e709499e3e485847cfca0
   - enabled: 1
     path: Assets/Scenes/Vittoria.unity
-    guid: d4663d384a8dad041ac10796c5fb626a
+    guid: cb8a7a1a4a2e6f7489eeb04024f0cc4d
   - enabled: 1
     path: Assets/Scenes/Perdita_Chiave.unity
-    guid: ebe151ef24a2a50478ffcb283486476e
+    guid: 435b3852cd05f0c4589de3516be57779
   - enabled: 1
     path: Assets/Scenes/Perdita_Vite.unity
-    guid: 552e9f777606b574eb9f4f0bbdd3bd74
+    guid: 83795ac8fe4763d4399dfca4a5016bf2
   - enabled: 1
     path: Assets/Scenes/Pausa.unity
-    guid: 442a0d2a2371f8145b77e6c79c75088a
+    guid: 5475acf4a7a951147ad185fd580f9db5
   m_configObjects: {}
