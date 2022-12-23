@@ -9,9 +9,10 @@ public class VolumeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // se non ci sono settate le impostazioi le setta, altrimenti tienme quelle gia impostate
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
-            PlayerPrefs.SetFloat("musicVolume", 0.5f);
+            PlayerPrefs.SetFloat("musicVolume", 0.2f);
             Load();
         }
         else
@@ -20,18 +21,18 @@ public class VolumeManager : MonoBehaviour
         }
     }
 
-    public void ChangeVolume()
+    public void ChangeVolume() // modifica il volume del gioco
     {
         AudioListener.volume = volumeSlider.value;
         Save();
     }
 
-    private void Load()
+    private void Load() //carica le impostazioni dello slider
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
-    private void Save()
+    private void Save() // salva le impostazioni delli slider
     {
         PlayerPrefs.SetFloat("musicVolume", volumeSlider.value);
     }

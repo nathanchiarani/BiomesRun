@@ -6,30 +6,13 @@ public class VelocityStars : MonoBehaviour
 {
     bool VelocityPlus = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
+        // se collido con un oggetto con il tag stella rendo il player più veloce
         if (collision.gameObject.tag == "stella")
         {
             VelocityPlus = true;
         }
-    }
-
-    IEnumerator CollisionWithStar()
-    {
-        
-        yield return new WaitForSeconds(3f);
-        VelocityPlus = false;
     }
 }

@@ -10,15 +10,17 @@ public class OpenDoorLevel1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // velocità di spostamento porte
         translateObj = new Vector3(0, -0.1f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Door1.GetComponent<Transform>().localPosition.y > -34f && OpenDoor1)
+        // se la porta non è in quella posiozione la trasla tramite il translateobj facendola scivolare verso il basso
+        if (Door1.GetComponent<Transform>().localPosition.y > -34f && OpenDoor1) 
         {
-            Door1.GetComponent<Transform>().Translate(translateObj);
+            Door1.GetComponent<Transform>().Translate(translateObj); 
         }
     }
 }

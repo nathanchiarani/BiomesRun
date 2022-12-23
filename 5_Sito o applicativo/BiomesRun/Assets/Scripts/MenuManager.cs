@@ -7,75 +7,71 @@ public class MenuManager : MonoBehaviour
 {
     
 
-    public void Exit()
+    public void Exit() // es^ce dal gioco
     {
         Application.Quit();
     }
 
-    public void ReturnMain()
+    public void ReturnMain() // carica la schermata di benvenuto
     {
         SceneManager.LoadScene(0);
         mostraCursore();
     }
 
-    public void LoadBiome1()
+    public void LoadBiome1() // carica la spiegazione del primo livello
     {
         SceneManager.LoadScene(1);
         mostraCursore();
     }
 
-    public void StartLevel1()
+    public void StartLevel1() //carica il primo livello
     {
         SceneManager.LoadScene(2);
         mostraCursore();
     }
 
-    public void LoadBiome2()
+    public void LoadBiome2() // carica la spiegazione del secondo livello
     {
         SceneManager.LoadScene(3);
         mostraCursore();
     }
 
-    public void StartLevel2()
+    public void StartLevel2() //carica il secondo livello
     {
         SceneManager.LoadScene(4);
         mostraCursore();
     }
 
-    public void LoadBiome3()
+    public void LoadBiome3() // carica la spiegazione del terzo livello
     {
         SceneManager.LoadScene(5);
         mostraCursore();
     }
-    public void StartLevel3()
+    public void StartLevel3() //carica il terzo livello
     {
         SceneManager.LoadScene(6);
         mostraCursore();
     }
 
-    public void Victory()
+    public void Victory() //carica la schermata di vittoria
     {
         SceneManager.LoadScene(7);
         mostraCursore();
     }
 
-    public void LoseKey()
+    public void LoseKey() //carica la schermata di perdita per la chiave falsa
     {
         SceneManager.LoadScene(8);
         mostraCursore();
     }
 
-    public void LoseLives()
+    public void LoseLives() //carica la schermata di perdita per l'esaurimento delle vite
     {
         SceneManager.LoadScene(9);
         mostraCursore();
     }
-    private void Start()
-    {
-        
-    }
 
-    private void mostraCursore()
+    private void mostraCursore() // mostra il cursore per poter interagire con i bottoni
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;

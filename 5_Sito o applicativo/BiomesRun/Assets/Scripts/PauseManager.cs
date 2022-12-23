@@ -11,8 +11,10 @@ public class PauseManager : MonoBehaviour
     [System.Obsolete]
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // se l'utente schiaccia esc
         {
+            // se la schermata di pausa è presente la toglie e riparte il gioco, altrimenti la visualizza e ferma il gioco
             if (pauseMenu.active)
             {
                 DefocusMenu();
@@ -24,7 +26,7 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void FocusMenu()
+    public void FocusMenu() // metodo che rende il cursore visibile e visualizza la schermata di pausa
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
@@ -32,7 +34,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void DefocusMenu()
+    public void DefocusMenu() // metodo che rende il cursore invisibile e rimuove la schermata di pausa
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

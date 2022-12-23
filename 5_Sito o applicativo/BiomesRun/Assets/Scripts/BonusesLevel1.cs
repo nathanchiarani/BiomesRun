@@ -8,35 +8,32 @@ public class BonusesLevel1 : MonoBehaviour
     bool bonusHitted;
     int punteggio = 0;
     public TextMeshProUGUI points;
+    public AudioSource gems;
     // Start is called before the first frame update
     void Start()
     {
         bonusHitted = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "gemma")
+        if (other.gameObject.tag == "gemma") // se collido con un oggetto con il tag gemma la distruggo e aggiungo un punto
         {
             if (bonusHitted)
             {
+                gems.Play();
                 Destroy(other.gameObject);
                 bonusHitted = false;
                 StartCoroutine(CollisionWithBonus());
             }
         }
-        if (punteggio == 6)
+        if (punteggio == 6) // se il punteggio è 6 apro la porta
         {
             GetComponent<OpenDoorLevel1>().OpenDoor1 = true;
         }
     }
 
-    IEnumerator CollisionWithBonus()
+    IEnumerator CollisionWithBonus() // coroutine che aggiorna il punteggio
     {
         punteggio++;
         points.text = "Punteggio: " + punteggio.ToString();

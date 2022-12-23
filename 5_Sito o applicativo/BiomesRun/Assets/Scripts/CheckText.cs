@@ -10,7 +10,7 @@ public class CheckText : MonoBehaviour
     public GameObject button;
     void Update()
     {
-        if(text.text.Length > 0)
+        if(text.text.Length > 0) // verifico se nel textbox del nome è stato inserito qualcosa, se vuoto il textbox è enabled
         {
             button.GetComponent<Button>().enabled = true;
         }

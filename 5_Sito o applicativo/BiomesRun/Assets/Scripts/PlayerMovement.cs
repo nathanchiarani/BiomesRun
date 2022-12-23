@@ -31,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public float speed = 10.0f;
-    private float translation;
-    private float straffe;
     public Image imgLives;
 
     private int lives = 3;
@@ -42,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
     bool canTakeDamage;
 
+    public AudioSource HitEnemy;
+    public AudioSource key;
+    public AudioSource star;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -50,19 +51,20 @@ public class PlayerMovement : MonoBehaviour
         canTakeDamage = true;
 
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; 
-    }
+        rb.freezeRotation = true;
 
-    // Update is called once per frame
+}
+
+// Update is called once per frame
     void Update()
     {
-        //ground check
+        //imposto il player attaccato al terreno
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
         SpeedControl();
 
-        //handle drag
+        //verifico di essere attaccato al terreno
         if (grounded)
         {
             rb.drag = groundDrag;
@@ -78,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    public int updateLives(int currentLives)
+    public int updateLives(int currentLives) // metodo che aggiorna le vite del personaggio
     {
         imgLives.sprite = _liveSprites[currentLives];
         return currentLives;
@@ -86,62 +88,69 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "mostro")
+        if (collision.gameObject.tag == "mostro") // se collido con un oggetto con il tag mostro mi togle una vita
         {
             if (canTakeDamage)
             {
+                HitEnemy.Play();
                 canTakeDamage = false;
                 StartCoroutine(CollisionWithMonster());
             }
         }
-        if (lives == 0)
+        if (lives == 0) // se le vite sono 0 carica la schermata di perdita
         {
             GetComponent<MenuManager>().LoseLives();
         }
 
-        if (collision.gameObject.tag == "stella")
+        if (collision.gameObject.tag == "stella") // se collido con un oggetto con il tag stella mi aumenta la velocità
         {
+            star.Play();
             Destroy(collision.gameObject);
             StartCoroutine(CollisionWithStar());
         }
 
         if (collision.gameObject.tag == "Portal1")
+        // se collido con un oggetto con il Portal1 mi porta alla schermata di spiegazione del secondo bioma
         {
             GetComponent<MenuManager>().LoadBiome2();
         }
 
         if (collision.gameObject.tag == "Portal2")
+        // se collido con un oggetto con il Portal2 mi porta alla schermata di spiegazione del terzo bioma
         {
             GetComponent<MenuManager>().LoadBiome3();
         }
 
         if (collision.gameObject.tag == "Portal3")
+        // se collido con un oggetto con il Portal3 mi porta alla schermata di vittoria
         {
             GetComponent<MenuManager>().Victory();
         }
 
         if(collision.gameObject.tag == "WrongKey")
+        // se collido con un oggetto con il WrongKey mi porta alla schermata di perdita per la chiave falsa
         {
+            key.Play();
             GetComponent<MenuManager>().LoseKey();
         }
 
     }
 
-    private void MyInput()
+    private void MyInput() // metodo che prende le assi del mouse
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
 
-    private void MovePlayer()
+    private void MovePlayer() //metodo che serve per muovere il player
     {
         //calcolo direzione di movimento
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = (orientation.forward * verticalInput + orientation.right * horizontalInput) /2;
 
         rb.velocity = moveDirection.normalized * moveSpeed * moveMultiplier;
     }
 
-    public void SpeedControl()
+    public void SpeedControl() // metodo che rende la velocità costante
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -153,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator CollisionWithMonster()
+    IEnumerator CollisionWithMonster() // coroutine che danneggia il giocatore togliendogli una vita
     {
         if(damageTime == 0)
         {
@@ -165,7 +174,7 @@ public class PlayerMovement : MonoBehaviour
         canTakeDamage = true;
     }
 
-    IEnumerator CollisionWithStar()
+    IEnumerator CollisionWithStar() // coroutine per la velocità se si prende una stella
     {
         moveSpeed += 5;
         yield return new WaitForSeconds(3f);

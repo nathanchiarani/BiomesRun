@@ -1,0 +1,201 @@
+@startuml
+hide circle
+skinparam defaultFontName Monospaced
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+
+
+	class PlayerMovement {		
+		+moveSpeed : float
+		+moveMultiplier : float
+		+groundDrag : float
+
+		+playerHeight : float
+		+whatIsGround : LayerMask
+		~grounded : bool
+
+		+damageTime : float
+
+		+orientation : Transform
+
+		~horizontalInput : float
+		~verticalInput : float
+
+		~moveDirection : Vector3
+
+		~rb : Rigidbody
+
+		-speed : float = 10f
+		+imgLives : Image
+
+		+lives : int = 3
+
+		-_liveSprites : Sprite[]
+
+		~canTakeDamage : bool
+		
+		+gems : AudioSource
+		+key : AudioSource
+		+HitEnemy : AudioSource
+		
+		~Start() : void
+		~Update() : void
+		-FixedUpdate() : void
+		+updateLives(int) : int
+		+OnCollisionEnter(Collision) : void
+		-MyInput() : void
+		-MovePlayer() : void
+		+SpeedControl() : void
+		~CollisionWithMonster() : IEnumerator
+		~CollisionWithStar : IEnumerator
+	}
+	
+	
+	class BonusesLevel1{
+		~bonusHitted : bool
+		~punteggio : int = 0
+		+points : TextMeshProUGUI
+	
+		~Start() : void
+		+OnTriggerEnter(Collisider) : void
+		~CollisionWithBonus : IEnumerator
+	}
+
+	class BonusesLevel2{
+		~bonusHitted : bool
+		~punteggio : int = 0
+		+points : TextMeshProUGUI
+		~keyDoor : GameObject
+		~keyCaveau : GameObject
+		~finalKey : GameObject
+	
+		~Start() : void
+		+OnTriggerEnter(Collisider) : void
+		~CollisionWithBonus : IEnumerator
+	}
+
+	class BonusesLevel3{
+		~bonusHitted : bool
+		~punteggio : int = 0
+		+points : TextMeshProUGUI
+		~keyCaveau : GameObject
+		~finalKey : GameObject
+	
+		~Start() : void
+		+OnTriggerEnter(Collisider) : void
+		~CollisionWithBonus : IEnumerator
+	}
+	
+	class CheckText{
+		+text : TMP_InputField
+		+button : GameObject
+
+		~Update() : void
+        }
+	
+	class Enemy{
+		+Target : Transform
+
+		~Update() : void
+	}
+
+	class KeyRotator{
+		+rotation : Vector3
+
+		~Update() : void
+	}
+
+	class MenuManager{
+		+Exit() : void
+		+ReturnMain() : void
+		+LoadBiome1() : void
+		+StartLevel1() : void
+		+LoadBiome2() : void
+		+StartLevel2() : void
+		+LoadBiome3() : void
+		+StartLevel3() : void
+		+Victory() : void
+		+LoseKey() : void
+		+LoseLives() : void
+		-mostraCursore() : void
+	}
+
+	class MoveCamera{
+		+cameraPosition : Transform
+
+		~Update() : void
+	}
+
+	class OpenDoorLevel1{
+		+Door1 : GameObject
+		+translateObj : Vector3
+		+OpenDoor1 : bool
+		+gems : AudioSource
+
+		~Start() : void
+		~Update() : void
+	}
+
+	class OpenDoorLevel2{
+		+FinalDoor2 : GameObject
+		+translateObj : Vector3
+		+FinalOpenDoor2 : bool
+		+CaveauDoor2 : GameObject
+		+CaveauOpenDoor2 : bool
+		+gems : AudioSource
+		+key : AudioSource
+
+		~Start() : void
+		~Update() : void
+	}
+
+	class OpenDoorLevel3{
+		+FinalDoor3 : GameObject
+		+translateObj : Vector3
+		+FinalOpenDoor3 : bool
+		+CaveauDoor3 : GameObject
+		+CaveauOpenDoor3 : bool
+		+gems : AudioSource
+		+key : AudioSource
+
+		+SecretDoor3 : GameObject
+		+SecretOpenDoor3 : bool
+
+		~Start() : void
+		~Update() : void
+	}
+
+	class PauseManager{
+		+pauseMenu : GameObject
+
+		~Update() : void
+		~FocusMenu() : void
+		~DefocusMenu() : void
+	}
+
+	class PlayerCam{
+		+sensX : float
+		+sensY : float
+		+orientation : Transform
+		~xRotation : float
+		~yRotation : float
+
+		~Start() : void
+		~Update() : void
+	}
+
+	class VelicityStars{
+		~VelocityPlus : bool = false
+
+		+OnCollisionEnter(Collision) : void
+	}
+
+        class VolumeManager{
+		~volumeSlider : Slider
+
+		~Start() : void
+		+ChangeVolume() : void
+		-Load() : void
+		-Save() : void
+	}
+@enduml
